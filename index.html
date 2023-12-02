@@ -1,0 +1,159 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="header">CSS Selectors</h1>
+    <h2>Basics</h2>
+        <table>
+            <thead>
+                <th scope="col">Code</th>
+                <th scopr="col">Defined as</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>p{<br>
+                        color: blue;
+                        }</td>
+                    <td>CSS Ruleset</td>
+                </tr>
+                <tr>
+                    <td>p</td>
+                    <td>Selector or Opening Tag</td>
+                </tr>
+                <tr>
+                    <td>color: blue;</td>
+                    <td>Declaration</td>
+                </tr>
+                <tr>
+                    <td>color</td>
+                    <td>Property</td>
+                </tr>
+                <tr>
+                    <td>blue</td>
+                    <td>Value</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </table>
+
+    <h2>Selectors</h2>
+    <div class="container">
+        <table>
+            <thead>
+                <th scope="col">Selector</th>
+                <th scope="col">Scope</th>
+                <th scope="col">Category</th>
+                <th scope="col">Peculiarities</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>*</td>
+                    <td>Universal</td>
+                    <td>Type</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>p{}</td>
+                    <td>Element</td>
+                    <td>Type</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>li h4 {}</td>
+                    <td>Element inside element (h4 inside li)</td>
+                    <td>Type</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>[class]{}</td>
+                    <td>All elements with the "class" attribute</td>
+                    <td>Attribute</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>img[src*='winter'] {}</td>
+                    <td>Attributes with specific values (defining strings inside attributes is enough).</td>
+                    <td>Attribute</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>#large-title{}</td>
+                    <td>ID Attribute</td>
+                    <td>Attrbute</td>
+                    <td>The ID attribute can only have a single value, and it can only be given to a single element.</td>
+                </tr>
+                <tr>
+                    <td>.brand{}</td>
+                    <td>Any element with the "brand" class</td>
+                    <td>Class</td>
+                    <td>As long as the element's class has the "brand" value, regardless of how many class values the element has in total, it is affected by this class selector.</td>
+                </tr>
+                <tr>
+                    <td>h1.special{}</td>
+                    <td>All h1 elements with the class value "special"</td>
+                    <td>Type and Class (Chaining)</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>.main-list li{}</td>
+                    <td>All list elements inside a main element with the class value "main-list"</td>
+                    <td>Class and Type (Descendent combination)</td>
+                    <td>Useful for list elements. Multi-nesting is possible as well (.main-list li h4{}).</td>
+                </tr>
+                <tr>
+                    <td>p::before {
+                        content: "Note: ";
+                        font-weight: bold;
+                    }</td>
+                    <td>A specific "part" of an element (e.g. before)</td>
+                    <td>Pseudo-element</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>p:hover{}</td>
+                    <td>A specific "state" of an element (e.g. when hovering over it)</td>
+                    <td>Pseudo-class</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Specificity</h2>
+        <table>
+            <thead>
+                <th scope="col">Ranking</th>
+                <th scope="col">Definition</th>
+                <th scope="col">Examples</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1. HTML Inline Style
+                        <br>2. ID Attribute
+                        <br>3. Class, Attribute, Pseudo-class
+                        <br>4. Type (element), Pseudo-element
+                    </td>
+                    <td>A higher specificity score in any category          outweighs any number of lower specificity scores. For example, a single ID selector (0,1,0,0) is more specific than any number of class selectors (0,0,n,0).
+                        <br>
+                        <br>
+                        In the case of a specificity tie, the last rule defined in the CSS is the one that is applied.
+                    </td>
+                    <td>
+                        #navbar has a specificity of (0,1,0,0) (one ID).
+                        <br>.button.active has a specificity of (0,0,2,0) (two classes).
+                        <br>div span has a specificity of (0,0,0,2) (two elements).
+                        <br>#navbar ul li a has a specificity of (0,1,0,3) (one ID and three elements).
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>
